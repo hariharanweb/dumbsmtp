@@ -10,6 +10,6 @@ Run the jar file at bin/dumbsmtp-1.0-SNAPSHOT.jar <path_to_folder_where_you_want
 
 Command (sudo because mail smtp server runs on port 25)
 
-sudo java -jar bin/dumbsmtp-1.0-SNAPSHOT.jar ./mails
+sudo java -jar bin/dumbsmtp-1.0-SNAPSHOT.jar /tmp/mails
 
 A server runs at http://localhost:1111/ where you can browse the mails.
