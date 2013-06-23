@@ -41,6 +41,5 @@ public class MailServerRunner {
         tomcat.start();
 
         tomcat.getServer().await();
-        //tomcat.wait();
     }
 }

@@ -26,8 +26,9 @@ public class MailFileDumper implements IMailListener{
 
     private void dumpMail(SmtpMessage msg) throws IOException {
         String subject = msg.getHeaderValue("Subject");
+        String to = msg.getHeaderValue("To").split("@")[0];
         StringBuffer content = getHeaderMessage(msg).append(msg.getBody());
-        System.out.println("Writing to file "+dumpFolderName+"/"+subject);
+        System.out.println("Writing to file "+dumpFolderName+"/"+to+"-"+subject+"-"+System.currentTimeMillis());
         File file = new File(dumpFolderName, subject);
         FileUtils.writeStringToFile(file, content.toString());
     }
