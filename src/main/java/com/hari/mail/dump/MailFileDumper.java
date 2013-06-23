@@ -28,9 +28,14 @@ public class MailFileDumper implements IMailListener{
         String subject = msg.getHeaderValue("Subject");
         String to = msg.getHeaderValue("To").split("@")[0];
         StringBuffer content = getHeaderMessage(msg).append(msg.getBody());
-        System.out.println("Writing to file "+dumpFolderName+"/"+to+"-"+subject+"-"+System.currentTimeMillis());
-        File file = new File(dumpFolderName, subject);
+
+        String fileName = to + "-" + subject + "-" + System.currentTimeMillis();
+        System.out.println("Writing to file " + dumpFolderName + "/" + fileName);
+        File file = new File(dumpFolderName, fileName);
+        File contentFile = new File(dumpFolderName, fileName+".html");
+
         FileUtils.writeStringToFile(file, content.toString());
+        FileUtils.writeStringToFile(contentFile, msg.getBody());
     }
 
     private StringBuffer getHeaderMessage(SmtpMessage msg) {

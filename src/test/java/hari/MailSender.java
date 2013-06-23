@@ -14,7 +14,7 @@ import java.util.Properties;
 public class MailSender {
     @Test
     public void shouldSendMailsToMailServer() throws MessagingException {
-        sendMessage(25, "sender@here.com", "Test123", "Test Body", "receiver@there.com");
+        sendMessage(25, "sender@here.com", "Test123", "<html><body><h1>Hello world</h1></body></html>", "receiver@there.com");
     }
 
     private Properties getMailProperties(int port) {
